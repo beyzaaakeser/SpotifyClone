@@ -25,3 +25,26 @@ export const renderSongs = (songs) => {
 
   });
 };
+
+// oynaatilaan sarkinin ozelliklerini dinamik olarak alir
+export const renderPlayingInfo = (song) => {
+    console.log(song);
+    elements.playingInfo.innerHTML = `
+    <img
+    src="${song.img}"
+    id="info-img"
+    class=""
+    alt=""
+    />
+    <div>
+      <p>Şu an oynatılıyor...</p>
+      <h3>${song.title}</h3>
+    </div>
+    
+    `;
+  };
+
+  //* Başlığı günceller
+  export const updateTitle = (message) => {
+    elements.title.innerText = message;
+  };
