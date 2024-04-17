@@ -175,6 +175,10 @@ main .songs .list .card figure .play {
   transition: all 0.4s;
   opacity: 0;
 }
+main .songs .list .card figure .play:hover {
+  scale: 1.2;
+  background: #16af4e;
+}
 
 * {
   margin: 0;

@@ -142,6 +142,10 @@ main{
                         border-radius: 50%;
                         transition: all 0.4s;
                         opacity: 0;
+                        &:hover{
+                            scale: 1.2;
+                            background: #16af4e;
+                        }
                     }
                 }
                 
