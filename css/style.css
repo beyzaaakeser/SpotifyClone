@@ -120,6 +120,61 @@ main header form ul li {
 main header form ul li:hover {
   color: #fff;
 }
+main .songs h2 {
+  padding: 20px;
+  cursor: pointer;
+}
+main .songs h2:hover {
+  text-decoration: underline;
+}
+main .songs .list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+main .songs .list .card {
+  width: 200px;
+  background: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+main .songs .list .card h4 {
+  margin-bottom: 6px;
+}
+main .songs .list .card:hover {
+  opacity: 1;
+}
+main .songs .list .card:hover .play {
+  bottom: 20px;
+  opacity: 1;
+}
+main .songs .list .card figure {
+  position: relative;
+}
+main .songs .list .card figure img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+main .songs .list .card figure .play {
+  background: #1cdf63;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  right: 10px;
+  bottom: -20px;
+  font-size: 20px;
+  border-radius: 50%;
+  transition: all 0.4s;
+  opacity: 0;
+}
 
 * {
   margin: 0;
