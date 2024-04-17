@@ -1,6 +1,6 @@
 import { API } from "./js/api.js";
 import { elements } from "./js/helpers.js";
- // import { renderPlayingInfo, updateTitle } from "./js/ui.js";
+import { renderPlayingInfo, updateTitle } from "./js/ui.js";
 
 const api = new API();
 //* Sayfa yüklendiği anda apiye istek atıp popüler müzikleri getirir
@@ -21,7 +21,7 @@ const playMusic = (url) => {
 //* Liste de tıklamalarda çalışır
 const handleClick = (e) => {
   if (e.target.id === "play-btn") {
-    const parent = e.target.closest(".card"); // parentElement yerine kullanırız en yakın ebeveyne götürür
+    const parent = e.target.closest(".card"); // parentElement yerine kullanırız en yakın ebeveyne götürür icine girdigimiz class adina gore
     //* Çalınacak müziğin bilgilerini ekrana basar
     renderPlayingInfo(parent.dataset);
     //* Müziği çalar
@@ -32,16 +32,22 @@ const handleClick = (e) => {
 
 //* Liste alanındaki tıklamaları izleme
 document.addEventListener("click", handleClick);
+
+
 // fotoğrafı dönderir
 const animatePhoto = () => {
   const img = document.querySelector(".info img");
   img.className = "animate";
 };
+
+
 // img etiketie eklediğimiz animate classını kaldırır
 const stopAnimation = () => {
   const img = document.querySelector(".info img");
   img.classList.remove("animate");
 };
+
+
 // Müziği çalma ve durdurma olaylarını izler
 elements.audio.addEventListener("play", animatePhoto);
 elements.audio.addEventListener("pause", stopAnimation);
