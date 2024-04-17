@@ -89,7 +89,7 @@ main{
     }
     
 
-    .songs{
+    .songs{      
         h2{
             padding: 20px;
             cursor: pointer;
@@ -98,11 +98,11 @@ main{
             }
         }
         .list{
+            justify-content: center;
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
             padding: 20px;
-
             .card{
                 width: 200px;
                 background: #121212;

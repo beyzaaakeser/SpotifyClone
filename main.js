@@ -1,6 +1,6 @@
 import { API } from "./js/api.js";
 import { elements } from "./js/helpers.js";
-import { renderPlayingInfo, updateTitle } from "./js/ui.js";
+ // import { renderPlayingInfo, updateTitle } from "./js/ui.js";
 
 const api = new API();
 //* Sayfa yüklendiği anda apiye istek atıp popüler müzikleri getirir
@@ -8,6 +8,7 @@ document.addEventListener(
   "DOMContentLoaded",
   async () => await api.getPopular()
 );
+
 const playMusic = (url) => {
   // müziğin url'ini htmle aktarma
   elements.audioSource.src = url;
@@ -27,6 +28,8 @@ const handleClick = (e) => {
     playMusic(parent.dataset.url);
   }
 };
+
+
 //* Liste alanındaki tıklamaları izleme
 document.addEventListener("click", handleClick);
 // fotoğrafı dönderir
