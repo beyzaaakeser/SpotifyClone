@@ -5,9 +5,19 @@ aside{
     border-radius: $radius;
     margin-bottom: 80px;
     figure{
+        .no-text{
+            display: none;
+            @include ipad{
+                display: block;
+                width: 50px;
+            }
+        }
         img{
             max-width: 130px;
             cursor: pointer;
+            @include ipad{
+                display: none;
+            }
         }
         nav{
             display: flex;
@@ -19,6 +29,16 @@ aside{
                 display: flex;
                 gap: 10px;
                 align-items: center;
+                i{
+                    @include ipad{
+                      font-size: 27px;
+                    }
+                  }
+                span{
+                  @include ipad{
+                    display: none;
+                  }
+                }
                 
             }
         }

@@ -60,7 +60,7 @@ elements.form.addEventListener("submit", (e) => {
     return;
   }
   //* Başlığı güncelle
-  updateTitle(`${query} İçin Sonuçlar`);
+  updateTitle(`${query} İçin Bulunan Sonuçlar`);
   api.searchMusic(query);
 });
 

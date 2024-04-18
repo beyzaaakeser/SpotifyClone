@@ -6,9 +6,23 @@ aside {
   border-radius: 10px;
   margin-bottom: 80px;
 }
+aside figure .no-text {
+  display: none;
+}
+@media (max-width: 800px) {
+  aside figure .no-text {
+    display: block;
+    width: 50px;
+  }
+}
 aside figure img {
   max-width: 130px;
   cursor: pointer;
+}
+@media (max-width: 800px) {
+  aside figure img {
+    display: none;
+  }
 }
 aside figure nav {
   display: flex;
@@ -21,6 +35,16 @@ aside figure nav a {
   display: flex;
   gap: 10px;
   align-items: center;
+}
+@media (max-width: 800px) {
+  aside figure nav a i {
+    font-size: 27px;
+  }
+}
+@media (max-width: 800px) {
+  aside figure nav a span {
+    display: none;
+  }
 }
 
 main {
