@@ -44,7 +44,7 @@ export const renderPlayingInfo = (song) => {
     `;
   };
 
-//* Başlığı günceller
+//* Arama yaptiktan sonra yazan Başlığı günceller
 export const updateTitle = (message) => {
     elements.title.innerText = message;
   };
