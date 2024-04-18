@@ -34,14 +34,14 @@ const handleClick = (e) => {
 document.addEventListener("click", handleClick);
 
 
-// fotoğrafı dönderir
+// calan muzigin fotoğrafıni dönderir
 const animatePhoto = () => {
   const img = document.querySelector(".info img");
   img.className = "animate";
 };
 
 
-// img etiketie eklediğimiz animate classını kaldırır
+// img etiketie eklediğimiz animate classını kaldırır. calan muzigin fotoğrafıni döndermeyi durdurur 
 const stopAnimation = () => {
   const img = document.querySelector(".info img");
   img.classList.remove("animate");
