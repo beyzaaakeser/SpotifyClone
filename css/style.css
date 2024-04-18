@@ -67,6 +67,11 @@ main header form #menu {
   font-size: 25px;
   display: none;
 }
+@media (max-width: 800px) {
+  main header form #menu {
+    display: block;
+  }
+}
 main header form .search-input {
   position: relative;
 }
@@ -121,6 +126,11 @@ main header form ul {
   align-items: center;
   justify-content: space-between;
   gap: 40px;
+}
+@media (max-width: 800px) {
+  main header form ul {
+    display: none;
+  }
 }
 main header form ul :last-child {
   background-color: #1cdf63;
@@ -203,6 +213,18 @@ main .songs .list .card figure .play {
 main .songs .list .card figure .play:hover {
   scale: 1.2;
   background: #16af4e;
+}
+
+.toggle {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 22px;
+  z-index: 1000;
+  background: black;
+  top: 100px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .playing {
