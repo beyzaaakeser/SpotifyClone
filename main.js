@@ -1,13 +1,12 @@
-import { API } from "./js/api.js";
-import { elements } from "./js/helpers.js";
-import { renderPlayingInfo, updateTitle } from "./js/ui.js";
+import { API } from './js/api.js';
+import { elements } from './js/helpers.js';
+import { renderPlayingInfo, updateTitle } from './js/ui.js';
 
 const api = new API();
 //* Sayfa yüklendiği anda apiye istek atıp popüler müzikleri getirir
-document.addEventListener(
-  "DOMContentLoaded",
-  async () => await api.getPopular()
-);
+document.addEventListener('DOMContentLoaded', async () => {
+  await api.getPopular();
+});
 
 const playMusic = (url) => {
   // müziğin url'ini htmle aktarma
@@ -20,8 +19,8 @@ const playMusic = (url) => {
 
 //* Liste de tıklamalarda çalışır
 const handleClick = (e) => {
-  if (e.target.id === "play-btn") {
-    const parent = e.target.closest(".card"); // parentElement yerine kullanırız en yakın ebeveyne götürür icine girdigimiz class adina gore
+  if (e.target.id === 'play-btn') {
+    const parent = e.target.closest('.card'); // parentElement yerine kullanırız en yakın ebeveyne götürür icine girdigimiz class adina gore
     //* Çalınacak müziğin bilgilerini ekrana basar
     renderPlayingInfo(parent.dataset);
     //* Müziği çalar
@@ -29,34 +28,30 @@ const handleClick = (e) => {
   }
 };
 
-
 //* Liste alanındaki tıklamaları izleme
-document.addEventListener("click", handleClick);
-
+document.addEventListener('click', handleClick);
 
 // calan muzigin fotoğrafıni dönderir
 const animatePhoto = () => {
-  const img = document.querySelector(".info img");
-  img.className = "animate";
+  const img = document.querySelector('.info img');
+  img.className = 'animate';
 };
 
-
-// img etiketie eklediğimiz animate classını kaldırır. calan muzigin fotoğrafıni döndermeyi durdurur 
+// img etiketie eklediğimiz animate classını kaldırır. calan muzigin fotoğrafıni döndermeyi durdurur
 const stopAnimation = () => {
-  const img = document.querySelector(".info img");
-  img.classList.remove("animate");
+  const img = document.querySelector('.info img');
+  img.classList.remove('animate');
 };
-
 
 // Müziği çalma ve durdurma olaylarını izler
-elements.audio.addEventListener("play", animatePhoto);
-elements.audio.addEventListener("pause", stopAnimation);
+elements.audio.addEventListener('play', animatePhoto);
+elements.audio.addEventListener('pause', stopAnimation);
 
-elements.form.addEventListener("submit", (e) => {
+elements.form.addEventListener('submit', (e) => {
   e.preventDefault();
   const query = e.target[0].value;
   if (!query) {
-    alert("Lüften bütün alanları doldurunuz!");
+    alert('Lüften bütün alanları doldurunuz!');
     return;
   }
   //* Başlığı güncelle
@@ -64,6 +59,6 @@ elements.form.addEventListener("submit", (e) => {
   api.searchMusic(query);
 });
 
-elements.menu.addEventListener("click", () => {
-  elements.ulList.classList.toggle("toggle");
+elements.menu.addEventListener('click', () => {
+  elements.ulList.classList.toggle('toggle');
 });

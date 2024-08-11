@@ -57,6 +57,7 @@ main {
 main header form {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 15px 30px;
   background: #121212;
   margin: 10px;

@@ -1,32 +1,43 @@
-import { renderSongs } from "./ui.js";
+import { renderSongs, renderSearchSongs } from './ui.js';
 
-const url =
-  "https://shazam.p.rapidapi.com/charts/track?locale=tr-TR&listId=ip-country-chart-TR";
 const options = {
-  method: "GET",
+  method: 'GET',
   headers: {
-    "X-RapidAPI-Key": "17bfa31bbbmsh1355592a7405f9bp1dd229jsnd7e87c1e1260",
-    "X-RapidAPI-Host": "shazam.p.rapidapi.com",
+    'X-RapidAPI-Key': '93abac49f1mshf96bc7f455d8f52p1bfff8jsn714e0a7240e5',
+    'X-RapidAPI-Host': 'shazam.p.rapidapi.com',
+  },
+};
+
+const optionsTop = {
+  method: 'GET',
+  headers: {
+    'x-rapidapi-key': '93abac49f1mshf96bc7f455d8f52p1bfff8jsn714e0a7240e5',
+    'x-rapidapi-host': 'spotify23.p.rapidapi.com',
   },
 };
 //* API isteklerini yönettiğimiz class yapısı
 export class API {
-  
   constructor() {
     this.songs = [];
   }
 
-  
   //* Popüler müzikleri getirir
   async getPopular() {
-    const res = await fetch(url, options);
-    const data = await res.json();
-    //* API'den aldığımız şarkıları song dizisine aktardık
-    this.songs = data.tracks;
-    //* Ekrana popüler müzikleri aktaracak fonksiyona songs dizisini parametre olarak gönderdik
-    renderSongs(this.songs);
-  }
+    const urlTop =
+      'https://spotify23.p.rapidapi.com/recommendations/?limit=20&seed_tracks=0c6xIDDpzE81m2q797ordA&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_genres=classical%2Ccountry';
 
+    try {
+      const res = await fetch(urlTop, optionsTop);
+      const data = await res.json();
+      console.log(data);
+      //* API'den aldığımız şarkıları song dizisine aktardık
+      this.songs = data.tracks;
+      //* Ekrana popüler müzikleri aktaracak fonksiyona songs dizisini parametre olarak gönderdik
+      renderSongs(this.songs);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   //* Arama methodu
   async searchMusic(query) {
@@ -44,6 +55,6 @@ export class API {
     this.songs = newData;
     console.log(this.songs);
     // aratılan şarkıları ekrana basma
-    renderSongs(this.songs);
+    renderSearchSongs(this.songs);
   }
 }
